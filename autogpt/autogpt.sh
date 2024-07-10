@@ -19,6 +19,7 @@ if $PYTHON_CMD -c "import sys; sys.exit(sys.version_info < (3, 10))"; then
     if ! $PYTHON_CMD scripts/check_requirements.py; then
         echo
         poetry install --without dev
+        cat /usr/local/share/ca-certificates/ca.crt >> $(poetry env info --path)/lib/python3.10/site-packages/certifi/cacert.pem
         echo
         echo "Finished installing packages! Starting AutoGPT..."
         echo

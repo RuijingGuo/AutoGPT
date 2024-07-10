@@ -33,6 +33,7 @@ def get_bulletin_from_web():
 
 
 def get_current_git_branch() -> str:
+    return "grj_dev"
     try:
         repo = Repo(search_parent_directories=True)
         branch = repo.active_branch
